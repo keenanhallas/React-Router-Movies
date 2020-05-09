@@ -2,22 +2,29 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import MovieCard from './MovieCard';
 
-const MovieList = props => {
+const MovieList = ({ movies, savedList, setSavedList, addToSavedList }) => {
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
+      {movies.map(movie => (
         <Link key={movie.id} to={`/movies/${movie.id}`}>
-          <MovieDetails key={movie.id} movie={movie} />
+          <MovieDetails
+            movie={movie} 
+            savedList={savedList}
+            setSavedList={setSavedList}
+            addToSavedList={addToSavedList} />
         </Link>
       ))}
     </div>
   );
 }
 
-function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
+function MovieDetails({ movie, savedList, setSavedList, addToSavedList }) {
   return (
-    <MovieCard movie={movie}/>
+    <MovieCard
+      movie={movie}
+      savedList={savedList}
+      setSavedList={setSavedList}
+      addToSavedList={addToSavedList}/>
   );
 }
 

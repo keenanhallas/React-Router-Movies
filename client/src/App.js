@@ -31,11 +31,24 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       <Route exact path="/">
-        <MovieList movies={movieList}/>
+        <MovieList
+          movies={movieList}
+          savedList={savedList}
+          setSavedList={setSavedList}
+          addToSavedList={addToSavedList}/>
       </Route>
-      <Route path="/movies/:id" component={Movie} />
+      <Route path="/movies/:id">
+        <Movie
+          savedList={savedList}
+          setSavedList={setSavedList}
+          addToSavedList={addToSavedList} />
+      </Route>
     </div>
   );
 };
 
 export default App;
+
+{/*
+render{props => <Movie {...props} movies={movies} addToSavedList={addToSavedList}/>}
+*/}
