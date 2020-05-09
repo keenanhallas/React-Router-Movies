@@ -5,7 +5,7 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {props.movies.map(movie => (
-        <Link to={`/movies/${movie.id}`}> {/*Why does this whole thing need to be wrapped in curlies?*/}
+        <Link key={movie.id} to={`/movies/${movie.id}`}> {/*Why does this whole thing need to be wrapped in curlies?*/}
           <MovieDetails key={movie.id} movie={movie} />
         </Link>
       ))}

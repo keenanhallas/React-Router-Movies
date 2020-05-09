@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Route, Link, useParams, BrowserRouter as Router} from "react-router-dom"
+import { Route } from "react-router-dom"
 import MovieList from "../src/Movies/MovieList";
-import Movie from "../src/Movies/Movie"
+import Movie from "../src/Movies/Movie";
 import SavedList from './Movies/SavedList';
 
 const App = () => {
@@ -39,10 +39,3 @@ const App = () => {
 };
 
 export default App;
-
-{/*
-<Route path="/movies/:id" render={props => {
-  const { id } = props.match.params;
-  return <Movie id={id}/>
-}} />
-*/}
